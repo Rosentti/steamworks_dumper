@@ -39,6 +39,11 @@ public:
      * @brief Prints some info about the RandomAccessStack to cout. Can segfault sometimes...
      */
     void Print();
+
+    /**
+     * @brief Prints some info about a single offset in the RandomAccessStack to cout. Can segfault sometimes...
+     */
+    void Print(int32_t offset);
 private:
     int32_t m_offset;
     int32_t m_offsetBackup;

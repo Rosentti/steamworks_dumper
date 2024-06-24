@@ -650,6 +650,11 @@ start_of_loop:
                         if (ras.Size() > 8)
                         {
                             int32_t stackOffset = ras.GetOffset();
+                            if (ras[stackOffset - 8] == nullptr)
+                            {
+                                // Nullptr check
+                                goto start_of_loop;
+                            }
                             size_t assertOffset = m_constBase + ras[stackOffset - 8]->disp;
                             if(m_module->IsDataOffset(assertOffset))
                             {

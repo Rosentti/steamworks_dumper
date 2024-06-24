@@ -169,3 +169,23 @@ void RandomAccessStack::Print() {
         }
     }
 }
+
+void RandomAccessStack::Print(int32_t offset) {
+    std::cout << "Printout of RandomAccessStack offset: " << offset << std::endl;
+    std::map<int32_t, cs_x86*>::iterator stack = m_stack.find(offset);
+
+    if (stack != m_stack.cend() && stack->second != nullptr) {
+        std::cout << "Offset " << stack->first << ", disp: " 
+            << stack->second->disp << " disp offset: " 
+            << (int32_t)stack->second->encoding.disp_offset 
+            << " imm offset: " 
+            << (int32_t)stack->second->encoding.imm_offset 
+            << " imm size: " 
+            << (int32_t)stack->second->encoding.imm_size 
+            << " imm0: " 
+            << (int32_t)stack->second->operands[0].imm 
+            << " imm1: " 
+            << (int32_t)stack->second->operands[1].imm 
+            << std::endl;
+    }
+}
