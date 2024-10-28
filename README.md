@@ -1,20 +1,20 @@
-# steamworks_dumper
-Quick and dirty steamworks dumper. It was written as a little helper tool for tracking changes in private steamworks api using 32bit linux client binaries.
-The code is far from perfect and whole app just begs for rewriting from scratch, but i'm still sharing for people who might find it useful.
+# steamworks_dumper (fork)
+Dumps internal steamclient.so API from a provided ubuntu12_32/steamclient.so binary. 
 
-**example output can be found [here](https://bitbucket.org/m4dengi/steamclient_tracker/)**. Tracking both stable and beta steam clients.
+Differs from m4dengi's original version as this is infinitely more spaghetti, however the original does not dump IPC info, like functionid and fencepost. 
 
 ## building
-Get yourself a copy of capstone engine and just do 
+Get yourself a copy of capstone engine and compile as such:
 ```
 $ mkdir build
 $ cd build
-$ cmake ../
+$ cmake ..
+$ cmake --build .
 ```
 
 ## usage
 ```
-./steamworks_dumper <path_to_steamclient.so> <out_path>
+./steamworks_dumper <path_to_ubuntu12_32_steamclient.so> <out_path>
 ```
   **_output path must be a valid existing directory!_**
   
